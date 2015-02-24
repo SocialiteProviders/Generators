@@ -15,6 +15,8 @@ class Stub
 
     /**
      * Author name.
+     *
+     * @return string
      */
     public function authorName()
     {
@@ -23,6 +25,8 @@ class Stub
 
     /**
      * Author email.
+     *
+     * @return string
      */
     public function authorMail()
     {
@@ -31,6 +35,8 @@ class Stub
 
     /**
      * Name in lowercase.
+     *
+     * @return string
      */
     public function nameLowerCase()
     {
@@ -39,6 +45,8 @@ class Stub
 
     /**
      * Name in StudlyCase.
+     *
+     * @return string
      */
     public function nameStudlyCase()
     {
@@ -47,6 +55,8 @@ class Stub
 
     /**
      * Name in UPPERCASE.
+     *
+     * @return string
      */
     public function nameUpperCase()
     {
@@ -55,6 +65,8 @@ class Stub
 
     /**
      * OAuth Version.
+     *
+     * @return string
      */
     public function oauthVersion()
     {
@@ -63,6 +75,8 @@ class Stub
 
     /**
      * Scopes.
+     *
+     * @return string
      */
     public function scopes()
     {
@@ -79,6 +93,8 @@ class Stub
 
     /**
      * Request Token Url.
+     *
+     * @return string
      */
     public function requestTokenUrl()
     {
@@ -87,6 +103,8 @@ class Stub
 
     /**
      * Authorize Url.
+     *
+     * @return string
      */
     public function authorizeUrl()
     {
@@ -95,6 +113,8 @@ class Stub
 
     /**
      * Access Token Url.
+     *
+     * @return string
      */
     public function accessTokenUrl()
     {
@@ -103,6 +123,8 @@ class Stub
 
     /**
      * User Info Url.
+     *
+     * @return string
      */
     public function userDetailsUrl()
     {

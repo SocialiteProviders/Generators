@@ -1,19 +1,19 @@
 {
-  "name": "socialiteproviders/generators",
-  "description": "Artisan Generators for OAuth1/OAuth2 Providers",
-  "license": "MIT",
-  "authors": [{
-    "name": "DraperStudio",
-    "email": "hello@draperstud.io"
-  }],
-  "require": {
-    "php": ">=5.4.0",
-    "illuminate/console": "~5.0",
-    "mustache/mustache": "2.7.0"
-  },
-  "autoload": {
-    "psr-4": {
-      "SocialiteProviders\\Generators\\": "src/"
+    "name": "socialiteproviders/generators",
+    "description": "Artisan Generators for OAuth1/OAuth2 Providers",
+    "license": "MIT",
+    "authors": [{
+        "name": "DraperStudio",
+        "email": "hello@draperstud.io"
+    }],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/console": "~5.0",
+        "mustache/mustache": "2.7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "SocialiteProviders\\Generators\\": "src/"
+        }
     }
-  }
 }

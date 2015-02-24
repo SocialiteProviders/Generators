@@ -27,15 +27,23 @@ class Compiler
     protected $context;
 
     /**
+     * Path to the folder where the stubs are located.
+     *
+     * @var string
+     */
+    protected $stubsPath;
+
+    /**
      * Create a new compiler instance.
      *
      * @param array $data
      */
     public function __construct(array $data)
     {
-        $this->files = app('files');
-        $this->mustache = app()->make('Mustache_Engine');
-        $this->context = new Stub($data);
+        $this->files     = app('files');
+        $this->mustache  = app()->make('Mustache_Engine');
+        $this->context   = new Stub($data);
+        $this->stubsPath = __DIR__.'/../stubs/';
     }
 
     /**
@@ -43,10 +51,7 @@ class Compiler
      */
     public function gitignore()
     {
-        return $this->compile(
-            __DIR__.'/../stubs/gitignore.stub',
-            '.gitignore'
-        );
+        return $this->compile('gitignore.stub', '.gitignore');
     }
 
     /**
@@ -54,10 +59,7 @@ class Compiler
      */
     public function composer()
     {
-        return $this->compile(
-            __DIR__.'/../stubs/composer.stub',
-            'composer.json'
-        );
+        return $this->compile('composer.stub', 'composer.json');
     }
 
     /**
@@ -65,10 +67,7 @@ class Compiler
      */
     public function license()
     {
-        return $this->compile(
-            __DIR__.'/../stubs/LICENSE.stub',
-            'LICENSE'
-        );
+        return $this->compile('LICENSE.stub', 'LICENSE');
     }
 
     /**
@@ -76,22 +75,19 @@ class Compiler
      */
     public function readme()
     {
-        return $this->compile(
-            __DIR__.'/../stubs/README.stub',
-            'README.md'
-        );
+        return $this->compile('README.stub', 'README.md');
     }
 
     /**
      * Generate the target file from a stub.
      *
      * @param $stub
-     * @param $targetName
+     * @param $targetLocation
      */
-    protected function compile($stub, $targetName)
+    protected function compile($stub, $targetLocation)
     {
         $contents = $this->mustache->render(
-            $this->files->get($stub), $this->context
+            $this->files->get($this->stubsPath.$stub), $this->context
         );
 
         $targetDir = base_path('/SocialiteProviders/'.$this->context->nameStudlyCase());
@@ -100,6 +96,6 @@ class Compiler
             $this->files->makeDirectory($targetDir.'/src', 0755, true, true);
         }
 
-        $this->files->put($targetDir.'/'.$targetName, $contents);
+        $this->files->put($targetDir.'/'.$targetLocation, $contents);
     }
 }

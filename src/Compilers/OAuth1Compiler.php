@@ -9,7 +9,7 @@ class OAuth1Compiler extends Compiler
     public function extendSocialite()
     {
         return $this->compile(
-            __DIR__.'/../stubs/OAuth1/ExtendSocialite.stub',
+            'OAuth1/ExtendSocialite.stub',
             'src/'.$this->context->nameStudlyCase().'ExtendSocialite.php'
         );
     }
@@ -19,10 +19,7 @@ class OAuth1Compiler extends Compiler
      */
     public function provider()
     {
-        return $this->compile(
-            __DIR__.'/../stubs/OAuth1/Provider.stub',
-            'src/Provider.php'
-        );
+        return $this->compile('OAuth1/Provider.stub', 'src/Provider.php');
     }
 
     /**
@@ -30,9 +27,6 @@ class OAuth1Compiler extends Compiler
      */
     public function server()
     {
-        return $this->compile(
-            __DIR__.'/../stubs/OAuth1/Server.stub',
-            'src/Server.php'
-        );
+        return $this->compile('OAuth1/Server.stub', 'src/Server.php');
     }
 }
