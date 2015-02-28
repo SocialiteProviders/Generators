@@ -1,5 +1,11 @@
 # {{nameStudlyCase}} {{oauthVersion}} Provider for Laravel Socialite
 
+[![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/SocialiteProviders/{{nameStudlyCase}}.svg?style=flat-square)](https://scrutinizer-ci.com/g/SocialiteProviders/{{nameStudlyCase}}/?branch=master)
+[![Latest Stable Version](https://img.shields.io/packagist/v/{{nameLowerCase}}/goodreads.svg?style=flat-square)](https://packagist.org/packages/{{nameLowerCase}}/goodreads)
+[![Total Downloads](https://img.shields.io/packagist/dt/{{nameLowerCase}}/goodreads.svg?style=flat-square)](https://packagist.org/packages/{{nameLowerCase}}/goodreads)
+[![Latest Unstable Version](https://img.shields.io/packagist/vpre/{{nameLowerCase}}/goodreads.svg?style=flat-square)](https://packagist.org/packages/{{nameLowerCase}}/goodreads)
+[![License](https://img.shields.io/packagist/l/{{nameLowerCase}}/goodreads.svg?style=flat-square)](https://packagist.org/packages/{{nameLowerCase}}/goodreads)
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 ## Contents
