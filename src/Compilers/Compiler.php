@@ -55,6 +55,14 @@ class Compiler
     }
 
     /**
+     * Generate the .styleci.yml.
+     */
+    public function styleci()
+    {
+        return $this->compile('styleci.stub', '.styleci.yml');
+    }
+
+    /**
      * Generate the composer.json.
      */
     public function composer()

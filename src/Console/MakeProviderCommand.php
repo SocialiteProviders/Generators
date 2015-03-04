@@ -57,6 +57,7 @@ class MakeProviderCommand extends Command
         }
 
         $compiler->gitignore();
+        $compiler->styleci();
         $compiler->composer();
         $compiler->license();
         $compiler->readme();
