@@ -1,4 +1,5 @@
 <?php
+
 namespace SocialiteProviders\Generators\Contexts;
 
 class Stub

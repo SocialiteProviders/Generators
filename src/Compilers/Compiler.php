@@ -1,4 +1,5 @@
 <?php
+
 namespace SocialiteProviders\Generators\Compilers;
 
 use SocialiteProviders\Generators\Contexts\Stub;
@@ -40,9 +41,9 @@ class Compiler
      */
     public function __construct(array $data)
     {
-        $this->files     = app('files');
-        $this->mustache  = app()->make('Mustache_Engine');
-        $this->context   = new Stub($data);
+        $this->files = app('files');
+        $this->mustache = app()->make('Mustache_Engine');
+        $this->context = new Stub($data);
         $this->stubsPath = __DIR__.'/../stubs/';
     }
 

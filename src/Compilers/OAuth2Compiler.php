@@ -1,4 +1,5 @@
 <?php
+
 namespace SocialiteProviders\Generators\Compilers;
 
 class OAuth2Compiler extends Compiler

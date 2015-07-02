@@ -1,4 +1,5 @@
 <?php
+
 namespace SocialiteProviders\Generators;
 
 use Illuminate\Support\ServiceProvider;

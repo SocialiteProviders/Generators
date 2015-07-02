@@ -1,4 +1,5 @@
 <?php
+
 namespace SocialiteProviders\Generators\Console;
 
 use Illuminate\Console\Command;
@@ -37,15 +38,15 @@ class MakeProviderCommand extends Command
     public function fire()
     {
         $data = [
-            'name'            => $this->argument('name'),
-            'authorName'      => $this->option('author'),
-            'authorMail'      => $this->option('email'),
-            'oauthVersion'    => $this->option('spec'),
-            'scopes'          => $this->option('scopes'),
+            'name' => $this->argument('name'),
+            'authorName' => $this->option('author'),
+            'authorMail' => $this->option('email'),
+            'oauthVersion' => $this->option('spec'),
+            'scopes' => $this->option('scopes'),
             'requestTokenUrl' => $this->option('request_token_url'),
-            'authorizeUrl'    => $this->option('authorize_url'),
-            'accessTokenUrl'  => $this->option('access_token_url'),
-            'userDetailsUrl'  => $this->option('user_details_url'),
+            'authorizeUrl' => $this->option('authorize_url'),
+            'accessTokenUrl' => $this->option('access_token_url'),
+            'userDetailsUrl' => $this->option('user_details_url'),
         ];
 
         if ($this->option('spec') === 'oauth1') {
