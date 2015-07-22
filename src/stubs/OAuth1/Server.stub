@@ -85,6 +85,6 @@ class Server extends BaseServer
      */
     public function userScreenName($data, TokenCredentials $tokenCredentials)
     {
-        return $data['scree_name'];
+        return $data['screen_name'];
     }
 }
