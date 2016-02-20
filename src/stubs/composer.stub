@@ -7,8 +7,8 @@
         "email": "{{authorMail}}"
     }],
     "require": {
-        "php": ">=5.5.0",
-        "socialiteproviders/manager": "~1.0"
+        "php": ">=5.5.9",
+        "socialiteproviders/manager": "^1.2"
     },
     "autoload": {
         "psr-4": {
