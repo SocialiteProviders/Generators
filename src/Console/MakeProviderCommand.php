@@ -92,14 +92,14 @@ class MakeProviderCommand extends Command
     protected function getOptions()
     {
         return [
-            ['spec'              , null, InputOption::VALUE_REQUIRED, 'The OAuth version that should be used.'],
-            ['author'            , null, InputOption::VALUE_REQUIRED, 'The name of the author.'],
-            ['email'             , null, InputOption::VALUE_REQUIRED, 'The email of the author.'],
-            ['scopes'            , null, InputOption::VALUE_OPTIONAL, 'The scopes to be requested.'],
-            ['request_token_url' , null, InputOption::VALUE_OPTIONAL, 'The Request-Token-Endpoint URL.'],
-            ['authorize_url'     , null, InputOption::VALUE_OPTIONAL, 'The Authorization-Endpoint URL.'],
-            ['access_token_url'  , null, InputOption::VALUE_OPTIONAL, 'The Access-Token-Endpoint URL.'],
-            ['user_details_url'  , null, InputOption::VALUE_OPTIONAL, 'The User-Details-Endpoint URL.'],
+            ['spec', null, InputOption::VALUE_REQUIRED, 'The OAuth version that should be used.'],
+            ['author', null, InputOption::VALUE_REQUIRED, 'The name of the author.'],
+            ['email', null, InputOption::VALUE_REQUIRED, 'The email of the author.'],
+            ['scopes', null, InputOption::VALUE_OPTIONAL, 'The scopes to be requested.'],
+            ['request_token_url', null, InputOption::VALUE_OPTIONAL, 'The Request-Token-Endpoint URL.'],
+            ['authorize_url', null, InputOption::VALUE_OPTIONAL, 'The Authorization-Endpoint URL.'],
+            ['access_token_url', null, InputOption::VALUE_OPTIONAL, 'The Access-Token-Endpoint URL.'],
+            ['user_details_url', null, InputOption::VALUE_OPTIONAL, 'The User-Details-Endpoint URL.'],
         ];
     }
 }
