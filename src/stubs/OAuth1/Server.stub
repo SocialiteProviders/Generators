@@ -2,9 +2,9 @@
 
 namespace SocialiteProviders\{{nameStudlyCase}};
 
-use Laravel\Socialite\One\User;
 use League\OAuth1\Client\Credentials\TokenCredentials;
-use League\OAuth1\Client\Server\Server as BaseServer;
+use SocialiteProviders\Manager\OAuth1\Server as BaseServer;
+use SocialiteProviders\Manager\OAuth1\User;
 
 class Server extends BaseServer
 {
