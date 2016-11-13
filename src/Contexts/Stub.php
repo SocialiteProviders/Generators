@@ -2,6 +2,8 @@
 
 namespace SocialiteProviders\Generators\Contexts;
 
+use Illuminate\Support\Collection;
+
 class Stub
 {
     /**
@@ -11,7 +13,7 @@ class Stub
      */
     public function __construct($properties)
     {
-        $this->properties = collect($properties);
+        $this->properties = new Collection($properties);
     }
 
     /**
@@ -130,5 +132,25 @@ class Stub
     public function userDetailsUrl()
     {
         return $this->properties->get('userDetailsUrl');
+    }
+
+    /**
+     * @return array
+     */
+    public function toArray()
+    {
+        return [
+            'authorName'      => $this->authorName(),
+            'authorMail'      => $this->authorMail(),
+            'nameLowerCase'   => $this->nameLowerCase(),
+            'nameStudlyCase'  => $this->nameStudlyCase(),
+            'nameUpperCase'   => $this->nameUpperCase(),
+            'oauthVersion'    => $this->oauthVersion(),
+            'scopes'          => $this->scopes(),
+            'requestTokenUrl' => $this->requestTokenUrl(),
+            'authorizeUrl'    => $this->authorizeUrl(),
+            'accessTokenUrl'  => $this->accessTokenUrl(),
+            'userDetailsUrl'  => $this->userDetailsUrl(),
+        ];
     }
 }

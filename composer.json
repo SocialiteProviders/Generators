@@ -1,19 +1,30 @@
 {
     "name": "socialiteproviders/generators",
-    "description": "Artisan Generators for OAuth1/OAuth2 Providers",
+    "description": "Laravel Artisan Generators for OAuth1/OAuth2 Providers",
     "license": "MIT",
     "authors": [{
-        "name": "DraperStudio",
-        "email": "hello@draperstud.io"
+        "name": "Brian Faust",
+        "email": "hello@brianfaust.de",
+        "homepage": "https://brianfaust.de",
+        "role": "Developer"
     }],
     "require": {
-        "php": ">=5.4.0",
-        "illuminate/console": "~5.0",
-        "mustache/mustache": "2.7.0"
+        "php": "^5.6",
+        "illuminate/console": "5.1.* || 5.2.* || 5.3.*"
     },
     "autoload": {
         "psr-4": {
             "SocialiteProviders\\Generators\\": "src/"
         }
-    }
+    },
+    "config": {
+        "preferred-install": "dist"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "3.0-dev"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }

@@ -1,6 +1,4 @@
-<?php
-
-namespace SocialiteProviders\{{nameStudlyCase}};
+namespace SocialiteProviders\{{ $nameStudlyCase }};
 
 use Laravel\Socialite\Two\ProviderInterface;
 use SocialiteProviders\Manager\OAuth2\AbstractProvider;
@@ -11,19 +9,19 @@ class Provider extends AbstractProvider implements ProviderInterface
     /**
      * Unique Provider Identifier.
      */
-    const IDENTIFIER = '{{nameUpperCase}}';
+    const IDENTIFIER = '{{ $nameUpperCase }}';
 
     /**
      * {@inheritdoc}
      */
-    protected $scopes = ['{{scopes}}'];
+    protected $scopes = ['{{ $scopes }}'];
 
     /**
      * {@inheritdoc}
      */
     protected function getAuthUrl($state)
     {
-        return $this->buildAuthUrlFromBase('{{authorizeUrl}}', $state);
+        return $this->buildAuthUrlFromBase('{{ $authorizeUrl }}', $state);
     }
 
     /**
@@ -31,7 +29,7 @@ class Provider extends AbstractProvider implements ProviderInterface
      */
     protected function getTokenUrl()
     {
-        return '{{accessTokenUrl}}';
+        return '{{ $accessTokenUrl }}';
     }
 
     /**
@@ -39,7 +37,7 @@ class Provider extends AbstractProvider implements ProviderInterface
      */
     protected function getUserByToken($token)
     {
-        $response = $this->getHttpClient()->get('{{userDetailsUrl}}', [
+        $response = $this->getHttpClient()->get('{{ $userDetailsUrl }}', [
             'headers' => [
                 'Authorization' => 'Bearer '.$token,
             ],

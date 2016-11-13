@@ -32,7 +32,7 @@ Add the ServiceProvider to the providers array in the `config/app.php`.
 
 ```php
 'providers' => [
-    'SocialiteProviders\Generators\GeneratorsServiceProvider',
+    SocialiteProviders\Generators\GeneratorsServiceProvider::class,
 ],
 ```
 

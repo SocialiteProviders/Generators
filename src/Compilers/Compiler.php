@@ -3,6 +3,8 @@
 namespace SocialiteProviders\Generators\Compilers;
 
 use SocialiteProviders\Generators\Contexts\Stub;
+use Illuminate\Contracts\View\Factory as ViewFactory;
+use Illuminate\Contracts\Filesystem\Factory as FilesystemFactory;
 
 class Compiler
 {
@@ -14,25 +16,18 @@ class Compiler
     protected $files;
 
     /**
-     * Mustache Engine.
+     * Blade Engine.
      *
-     * @var \Mustache_Engine
+     * @var \Illuminate\View\Factory
      */
-    protected $mustache;
+    protected $view;
 
     /**
-     * Mustache Context.
+     * View Context.
      *
      * @var \SocialiteProviders\Generators\Contexts\Stub
      */
     protected $context;
-
-    /**
-     * Path to the folder where the stubs are located.
-     *
-     * @var string
-     */
-    protected $stubsPath;
 
     /**
      * Create a new compiler instance.
@@ -42,25 +37,8 @@ class Compiler
     public function __construct(array $data)
     {
         $this->files = app('files');
-        $this->mustache = app()->make('Mustache_Engine');
+        $this->view = app(ViewFactory::class);
         $this->context = new Stub($data);
-        $this->stubsPath = __DIR__.'/../stubs/';
-    }
-
-    /**
-     * Generate the .gitignore.
-     */
-    public function gitignore()
-    {
-        return $this->compile('gitignore.stub', '.gitignore');
-    }
-
-    /**
-     * Generate the .styleci.yml.
-     */
-    public function styleci()
-    {
-        return $this->compile('styleci.stub', '.styleci.yml');
     }
 
     /**
@@ -68,23 +46,7 @@ class Compiler
      */
     public function composer()
     {
-        return $this->compile('composer.stub', 'composer.json');
-    }
-
-    /**
-     * Generate the LICENSE.
-     */
-    public function license()
-    {
-        return $this->compile('LICENSE.stub', 'LICENSE');
-    }
-
-    /**
-     * Generate the README.md.
-     */
-    public function readme()
-    {
-        return $this->compile('README.stub', 'README.md');
+        return $this->compile('composer', 'composer.json');
     }
 
     /**
@@ -95,9 +57,9 @@ class Compiler
      */
     protected function compile($stub, $targetLocation)
     {
-        $contents = $this->mustache->render(
-            $this->files->get($this->stubsPath.$stub), $this->context
-        );
+        $view = $this->view->make("generator.stubs::$stub", $this->context->toArray());
+
+        $contents = "<?php\r\n\r\n".$view->render();
 
         $targetDir = base_path('/SocialiteProviders/'.$this->context->nameStudlyCase());
         if (!$this->files->isDirectory($targetDir)) {

@@ -38,30 +38,32 @@ class MakeProviderCommand extends Command
     public function fire()
     {
         $data = [
-            'name' => $this->argument('name'),
-            'authorName' => $this->option('author'),
-            'authorMail' => $this->option('email'),
-            'oauthVersion' => $this->option('spec'),
-            'scopes' => $this->option('scopes'),
+            'name'            => $this->argument('name'),
+            'authorName'      => $this->option('author'),
+            'authorMail'      => $this->option('email'),
+            'oauthVersion'    => $this->option('spec'),
+            'scopes'          => $this->option('scopes'),
             'requestTokenUrl' => $this->option('request_token_url'),
-            'authorizeUrl' => $this->option('authorize_url'),
-            'accessTokenUrl' => $this->option('access_token_url'),
-            'userDetailsUrl' => $this->option('user_details_url'),
+            'authorizeUrl'    => $this->option('authorize_url'),
+            'accessTokenUrl'  => $this->option('access_token_url'),
+            'userDetailsUrl'  => $this->option('user_details_url'),
         ];
 
-        if ($this->option('spec') === 'oauth1') {
-            $compiler = new OAuth1Compiler($data);
-        } elseif ($this->option('spec') === 'oauth2') {
-            $compiler = new OAuth2Compiler($data);
-        } else {
-            return $this->error('Neither OAuth1 nor OAuth2 was specified.');
+        switch ($this->option('spec')) {
+            case 'oauth1':
+                $compiler = new OAuth1Compiler($data);
+            break;
+
+            case 'oauth2':
+                $compiler = new OAuth2Compiler($data);
+            break;
+
+            default:
+                return $this->error('Neither OAuth1 nor OAuth2 was specified.');
+            break;
         }
 
-        $compiler->gitignore();
-        $compiler->styleci();
         $compiler->composer();
-        $compiler->license();
-        $compiler->readme();
         $compiler->extendSocialite();
         $compiler->provider();
 

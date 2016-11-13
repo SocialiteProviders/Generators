@@ -1,6 +1,4 @@
-<?php
-
-namespace SocialiteProviders\{{nameStudlyCase}};
+namespace SocialiteProviders\{{ $nameStudlyCase }};
 
 use League\OAuth1\Client\Credentials\TokenCredentials;
 use SocialiteProviders\Manager\OAuth1\Server as BaseServer;
@@ -13,7 +11,7 @@ class Server extends BaseServer
      */
     public function urlTemporaryCredentials()
     {
-        return '{{requestTokenUrl}}';
+        return '{{ $requestTokenUrl }}';
     }
 
     /**
@@ -21,7 +19,7 @@ class Server extends BaseServer
      */
     public function urlAuthorization()
     {
-        return '{{authorizeUrl}}';
+        return '{{ $authorizeUrl }}';
     }
 
     /**
@@ -29,7 +27,7 @@ class Server extends BaseServer
      */
     public function urlTokenCredentials()
     {
-        return '{{accessTokenUrl}}';
+        return '{{ $accessTokenUrl }}';
     }
 
     /**
@@ -37,7 +35,7 @@ class Server extends BaseServer
      */
     public function urlUserDetails()
     {
-        return '{{userDetailsUrl}}';
+        return '{{ $userDetailsUrl }}';
     }
 
     /**
