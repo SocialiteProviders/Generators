@@ -3,6 +3,7 @@
 namespace SocialiteProviders\Generators\Console;
 
 use Illuminate\Console\Command;
+use SocialiteProviders\Generators\Compilers\Compiler;
 use SocialiteProviders\Generators\Compilers\OAuth1Compiler;
 use SocialiteProviders\Generators\Compilers\OAuth2Compiler;
 use Symfony\Component\Console\Input\InputArgument;
@@ -71,7 +72,9 @@ class MakeProviderCommand extends Command
             $compiler->server();
         }
 
-        $this->info('Provider created successfully.');
+        $this->addToComposer($compiler);
+
+        $this->info('Provider generated. Run "composer dumpautoload" and "composer require socialiteproviders/manager" to get started.');
     }
 
     /**
@@ -103,5 +106,18 @@ class MakeProviderCommand extends Command
             ['access_token_url', null, InputOption::VALUE_OPTIONAL, 'The Access-Token-Endpoint URL.'],
             ['user_details_url', null, InputOption::VALUE_OPTIONAL, 'The User-Details-Endpoint URL.'],
         ];
+    }
+
+    /**
+     * @param \SocialiteProviders\Generators\Compilers\Compiler $compiler
+     */
+    private function addToComposer(Compiler $compiler)
+    {
+        $contents = json_decode(file_get_contents($filename = base_path('composer.json')), true);
+
+        $providerName = $compiler->getContext()->nameStudlyCase();
+        $contents['autoload']['psr-4']["SocialiteProviders\\$providerName"] = "SocialiteProviders/$providerName/src/";
+
+        file_put_contents($filename, json_encode($contents, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
     }
 }

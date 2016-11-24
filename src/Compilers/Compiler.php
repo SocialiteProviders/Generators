@@ -4,7 +4,6 @@ namespace SocialiteProviders\Generators\Compilers;
 
 use SocialiteProviders\Generators\Contexts\Stub;
 use Illuminate\Contracts\View\Factory as ViewFactory;
-use Illuminate\Contracts\Filesystem\Factory as FilesystemFactory;
 
 class Compiler
 {
@@ -47,6 +46,14 @@ class Compiler
     public function composer()
     {
         return $this->compile('composer', 'composer.json');
+    }
+
+    /**
+     * @return \SocialiteProviders\Generators\Contexts\Stub
+     */
+    public function getContext()
+    {
+        return $this->context;
     }
 
     /**
