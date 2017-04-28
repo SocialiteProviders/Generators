@@ -66,7 +66,11 @@ class Compiler
     {
         $view = $this->view->make("generator.stubs::$stub", $this->context->toArray());
 
-        $contents = "<?php\r\n\r\n".$view->render();
+        $contents = $view->render();
+
+        if($stub!='composer') {
+            $contents = "<?php\r\n\r\n" . $contents;
+        }
 
         $targetDir = base_path('/SocialiteProviders/'.$this->context->nameStudlyCase());
         if (!$this->files->isDirectory($targetDir)) {
