@@ -36,7 +36,7 @@ class MakeProviderCommand extends Command
     /**
      * Execute the console command.
      */
-    public function fire()
+    public function handle()
     {
         $data = [
             'name'            => $this->argument('name'),
