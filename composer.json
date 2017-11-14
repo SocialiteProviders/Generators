@@ -23,6 +23,11 @@
     "extra": {
         "branch-alias": {
             "dev-master": "3.0-dev"
+        },
+        "laravel": {
+            "providers": [
+                "SocialiteProviders\\Generators\\GeneratorsServiceProvider"
+            ]
         }
     },
     "minimum-stability": "dev",
