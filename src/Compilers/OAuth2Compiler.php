@@ -11,7 +11,7 @@ class OAuth2Compiler extends Compiler
     {
         return $this->compile(
             'OAuth2/ExtendSocialite',
-            'src/'.$this->context->nameStudlyCase().'ExtendSocialite.php'
+            $this->context->nameStudlyCase().'ExtendSocialite.php'
         );
     }
 
@@ -20,6 +20,6 @@ class OAuth2Compiler extends Compiler
      */
     public function provider()
     {
-        return $this->compile('OAuth2/Provider', 'src/Provider.php');
+        return $this->compile('OAuth2/Provider', 'Provider.php');
     }
 }
