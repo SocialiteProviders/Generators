@@ -7,6 +7,11 @@
         "email": "hello@brianfaust.de",
         "homepage": "https://brianfaust.de",
         "role": "Developer"
+    },{
+        "name": "dingdayu",
+        "email": "614422099@qq.com",
+        "homepage": "https://github.com/dingdayu",
+        "role": "Developer"
     }],
     "require": {
         "php": "^5.6 || ^7.0",

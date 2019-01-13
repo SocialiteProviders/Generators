@@ -72,10 +72,9 @@ class Compiler
             $contents = "<?php\r\n\r\n" . $contents;
         }
 
-        $targetDir = base_path('/SocialiteProviders/'.$this->context->nameStudlyCase());
+        $targetDir = base_path('/SocialiteProviders/src/'.$this->context->nameStudlyCase());
         if (!$this->files->isDirectory($targetDir)) {
             $this->files->makeDirectory($targetDir, 0755, true, true);
-            $this->files->makeDirectory($targetDir.'/src', 0755, true, true);
         }
 
         $this->files->put($targetDir.'/'.$targetLocation, $contents);
