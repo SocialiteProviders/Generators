@@ -116,7 +116,7 @@ class MakeProviderCommand extends Command
         $contents = json_decode(file_get_contents($filename = base_path('composer.json')), true);
 
         $providerName = $compiler->getContext()->nameStudlyCase();
-        $contents['autoload']['psr-4']["SocialiteProviders\\$providerName\\"] = "SocialiteProviders/$providerName/";
+        $contents['autoload']['psr-4']["SocialiteProviders\\$providerName\\"] = "SocialiteProviders/src/$providerName/";
 
         file_put_contents($filename, json_encode($contents, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
     }
