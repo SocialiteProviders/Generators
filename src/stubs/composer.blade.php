@@ -8,6 +8,7 @@
     }],
     "require": {
         "php": ">=5.5.9",
+        "ext-json": "*",
         "socialiteproviders/manager": "^2.0"
     },
     "autoload": {
