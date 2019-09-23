@@ -3,6 +3,7 @@
 namespace SocialiteProviders\Generators\Contexts;
 
 use Illuminate\Support\Collection;
+use Illuminate\Support\Str;
 
 class Stub
 {
@@ -53,11 +54,7 @@ class Stub
      */
     public function nameStudlyCase()
     {
-        $laravel = app();
-        if (substr($laravel::VERSION, 0, 1) === '6') {
-            return \Illuminate\Support\Str::studly($this->properties->get('name'));
-        }
-        return studly_case($this->properties->get('name'));
+        return Str::studly($this->properties->get('name'));
     }
 
     /**
@@ -89,14 +86,7 @@ class Stub
     {
         $scopes = $this->properties->get('scopes');
 
-        $laravel = app();
-        if (substr($laravel::VERSION, 0, 1) === '6') {
-            $multipleScopes = \Illuminate\Support\Str::contains($scopes, ',');
-        } else {
-            $multipleScopes = str_contains($scopes, ',');
-        }
-
-        if ($multipleScopes) {
+        if (Str::contains($scopes, ',')) {
             $scopes = explode(',', $this->properties->get('scopes'));
 
             return implode("', '", $scopes);
