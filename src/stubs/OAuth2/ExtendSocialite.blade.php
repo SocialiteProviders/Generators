@@ -5,10 +5,12 @@ use SocialiteProviders\Manager\SocialiteWasCalled;
 class {{ $nameStudlyCase }}ExtendSocialite
 {
     /**
-     * Execute the provider.
+     * Register the provider.
+     *
+     * @param \SocialiteProviders\Manager\SocialiteWasCalled $socialiteWasCalled
      */
     public function handle(SocialiteWasCalled $socialiteWasCalled)
     {
-        $socialiteWasCalled->extendSocialite('{{ $nameLowerCase }}', __NAMESPACE__.'\Provider');
+        $socialiteWasCalled->extendSocialite('{{ $nameLowerCase }}', Provider::class);
     }
 }
