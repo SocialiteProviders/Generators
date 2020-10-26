@@ -23,7 +23,7 @@ class MakeProviderCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Create a new OAuth1 Provider.';
+    protected $description = 'Create a new OAuth Provider.';
 
     /**
      * Create a new controller creator command instance.
