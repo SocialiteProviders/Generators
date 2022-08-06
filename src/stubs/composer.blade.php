@@ -7,7 +7,7 @@
         "email": "{{ $authorMail }}"
     }],
     "require": {
-        "php": "^7.4 || ^8.0",
+        "php": "^8.0",
         "ext-json": "*",
         "socialiteproviders/manager": "^4.0"
     },
