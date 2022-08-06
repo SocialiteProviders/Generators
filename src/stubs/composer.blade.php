@@ -7,9 +7,9 @@
         "email": "{{ $authorMail }}"
     }],
     "require": {
-        "php": "^7.2",
-        "socialiteproviders/manager": "^4.0",
-        "ext-json": "*"
+        "php": "^8.0",
+        "ext-json": "*",
+        "socialiteproviders/manager": "^4.0"
     },
     "autoload": {
         "psr-4": {
