@@ -1,13 +1,11 @@
 namespace SocialiteProviders\{{ $nameStudlyCase }};
 
+use GuzzleHttp\RequestOptions;
 use SocialiteProviders\Manager\OAuth2\AbstractProvider;
 use SocialiteProviders\Manager\OAuth2\User;
 
 class Provider extends AbstractProvider
 {
-    /**
-     * Unique Provider Identifier.
-     */
     const IDENTIFIER = '{{ $nameUpperCase }}';
 
     /**
@@ -37,12 +35,12 @@ class Provider extends AbstractProvider
     protected function getUserByToken($token)
     {
         $response = $this->getHttpClient()->get('{{ $userDetailsUrl }}', [
-            'headers' => [
+            RequestOptions::HEADERS => [
                 'Authorization' => 'Bearer '.$token,
             ],
         ]);
 
-        return json_decode($response->getBody(), true);
+        return json_decode((string) $response->getBody(), true);
     }
 
     /**
@@ -50,22 +48,12 @@ class Provider extends AbstractProvider
      */
     protected function mapUserToObject(array $user)
     {
-        return (new User())->setRaw($user)->map([
+        return (new User)->setRaw($user)->map([
             'id'       => $user['id'],
             'nickname' => $user['username'],
             'name'     => $user['name'],
             'email'    => $user['email'],
             'avatar'   => $user['avatar'],
-        ]);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    protected function getTokenFields($code)
-    {
-        return array_merge(parent::getTokenFields($code), [
-            'grant_type' => 'authorization_code'
         ]);
     }
 }
