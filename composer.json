@@ -2,29 +2,35 @@
     "name": "socialiteproviders/generators",
     "description": "Laravel Artisan Generators for OAuth1/OAuth2 Providers",
     "license": "MIT",
-    "authors": [{
-        "name": "Brian Faust",
-        "email": "hello@brianfaust.de",
-        "homepage": "https://brianfaust.de",
-        "role": "Developer"
-    },{
-        "name": "dingdayu",
-        "email": "614422099@qq.com",
-        "homepage": "https://github.com/dingdayu",
-        "role": "Developer"
-    }],
+    "authors": [
+        {
+            "name": "Brian Faust",
+            "email": "hello@brianfaust.de",
+            "homepage": "https://brianfaust.de",
+            "role": "Developer"
+        },
+        {
+            "name": "dingdayu",
+            "email": "614422099@qq.com",
+            "homepage": "https://github.com/dingdayu",
+            "role": "Developer"
+        }
+    ],
     "require": {
-        "php": "^7.3|^8.0",
+        "php": "^8.0",
         "ext-json": "*",
-        "illuminate/console": "^7.0|^8.0|^9.0|^10.0"
+        "illuminate/console": "^7.29 || ^8.0 || ^9.0 || ^10.0"
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "autoload": {
         "psr-4": {
             "SocialiteProviders\\Generators\\": "src/"
         }
     },
     "config": {
-        "preferred-install": "dist"
+        "preferred-install": "dist",
+        "sort-packages": true
     },
     "extra": {
         "branch-alias": {
@@ -35,7 +41,5 @@
                 "SocialiteProviders\\Generators\\GeneratorsServiceProvider"
             ]
         }
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+    }
 }
