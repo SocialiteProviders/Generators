@@ -2,6 +2,14 @@
     "name": "socialiteproviders/{{ $nameLowerCase }}",
     "description": "{{ $nameStudlyCase }} {{ $oauthVersion }} Provider for Laravel Socialite",
     "license": "MIT",
+    "keywords": [
+        "{{ $nameLowerCase }}",
+        "laravel",
+        "oauth",
+        "oauth2",
+        "provider",
+        "socialite"
+    ],
     "authors": [
         {
             "name": "{{ $authorName }}",

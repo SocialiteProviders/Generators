@@ -10,7 +10,7 @@ class {{ $nameStudlyCase }}ExtendSocialite
      * @param  \SocialiteProviders\Manager\SocialiteWasCalled  $socialiteWasCalled
      * @return void
      */
-    public function handle(SocialiteWasCalled $socialiteWasCalled)
+    public function handle(SocialiteWasCalled $socialiteWasCalled): void
     {
         $socialiteWasCalled->extendSocialite('{{ $nameLowerCase }}', Provider::class);
     }
