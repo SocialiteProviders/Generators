@@ -8,22 +8,13 @@ class Provider extends AbstractProvider
 {
     const IDENTIFIER = '{{ $nameUpperCase }}';
 
-    /**
-     * {@inheritdoc}
-     */
     protected $scopes = ['{{ $scopes }}'];
 
-    /**
-     * {@inheritdoc}
-     */
     protected function getAuthUrl($state)
     {
         return $this->buildAuthUrlFromBase('{{ $authorizeUrl }}', $state);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     protected function getTokenUrl()
     {
         return '{{ $accessTokenUrl }}';
